@@ -1,0 +1,228 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	
+	box-sizing: border-box;
+	/*
+	box-sizing	: 요소의 너비와 높이를 계산하는 방법 지정
+				1) content-box	: width, height가 content영역과 안쪽여백, 테두리는 포함하고 바깥여백은 포함하지 않음
+				2) border-box	: width, height가 content영역만 포함하고 여백, 테두리는 포함하지 않음
+	*/
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	overflow: hidden;
+	/*
+	content의 내용이 더 길때, 어떻게 보일지 설정
+	1) visible	: 넘쳐도 보임
+	2) hidden	: 넘치면 자름
+	3) scroll	: 스크롤바 존재
+	4) auto		: 내용이 잘릴때만 스크롤바
+	*/
+}
+
+section {
+	display: flex;
+	/*화면구성 1)flex : 세로,*/
+	justify-content: center;
+	/*수평방향 정렬방식*/
+	align-items: center;
+	/*수직방향 정렬방식*/
+	min-height: 100vh;
+	/*
+	vh	: vertical-height	: full-screen(100)
+	vw	: vertical-width	: full-screen(100)
+	*/
+	background: linear-gradient(to bottom, #f1f4f9, #dff1ff);
+	
+}
+section .color {
+	position: absolute;
+	filter: blur(150px);
+	/*추가 참고자료 > https://developer.mozilla.org/ko/docs/Web/CSS/filter*/
+}
+section .color:nth-child(1) {
+	/*
+	nth-child 		: color형제들중에서 앞에서부터(n)번째 요소를 정할때
+	nth-last-child	: color형제들중에서 뒤에서부터(n)번째 요소를 정할때
+	*/
+	top: -350px;
+	width: 600px;
+	height: 600px;
+	background: #ff359b;
+}
+section .color:nth-child(2) {
+	bottom: -150px;
+	left: 100px;
+	width: 500px;
+	height: 500px;
+	background: #fffd87;
+}
+section .color:nth-child(3) {
+	bottom: 50px;
+	right: 100px;
+	width: 300px;
+	height: 300px;
+	background: #00d2ff;
+}
+
+.box {
+	position: relative;
+}
+.box .square {
+	position: absolute;
+	
+	background: rgba(255,255,255,0.1);
+	backdrop-filter: blur(5px);
+
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+	border: 1px solid rgba(255,255,255,0.5);
+	border-right: 1px solid rgba(255,255,255,0.2);
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+	border-radius: 10px;
+
+	animation: animate 10s linear infinite;
+	animation-delay: calc(-1s * var(--i));
+	/*animation과 @keyframes animate는 한쌍
+	추가 참고자료 > https://webclub.tistory.com/621*/
+	/*calc로 css내 사칙연산 가능
+	추가 기본자료 > https://developer.mozilla.org/ko/docs/Web/CSS/calc()*/
+}
+@keyframes animate {
+	0%, 100%	 {
+		transform: translateY(-40px)
+	}
+	50%	 {
+		transform: translateY(40px)
+	}
+}
+.box .square:nth-child(1) {
+	top: -50px;
+	right: -60px;
+	width: 100px;
+	height: 100px;
+}
+.box .square:nth-child(2) {
+	top: 150px;
+	left: -100px;
+	width: 120px;
+	height: 120px;
+	z-index: 2;
+	/*position설정 이후 z-index 정수 설정 : 여러개 겹겹이 쌓는 방식*/
+}
+.box .square:nth-child(3) {
+	top: 250px;
+	right: -60px;
+	width: 80px;
+	height: 80px;
+	z-index: 2;
+}
+.box .square:nth-child(4) {
+	bottom: -80px;
+	left: 100px;
+	width: 50px;
+	height: 50px;
+}
+.box .square:nth-child(5) {
+	top: -80px;
+	left: 140px;
+	width: 60px;
+	height: 60px;
+}
+.container {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+
+	width: 400px;
+	min-height: 400px;
+	
+	border-radius: 10px;
+	
+	background: rgba(255,255,255,0.1);
+	backdrop-filter: blur(5px);
+
+	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+	border: 1px solid rgba(255,255,255,0.5);
+	border-right: 1px solid rgba(255,255,255,0.2);
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+
+.form {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 40px;
+}
+.form h2 {
+	position: relative;
+	color: #fff;
+	font-size: 24px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	/*자간설정*/
+	margin-bottom: 40px;
+}
+
+.form h2::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	width: 80px;
+	height: 4px;
+	background: #fff;
+}
+
+.form .inputBox {
+	width:100%;
+	margin-top: 20px;
+}
+.form .inputBox input{
+	width: 100%;
+	background: rgba(255,255,255,0.2);
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+
+	border-radius: 35px;
+	border-right: 1px solid rgba(255,255,255,0.2);
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+	
+	color: #fff;
+	font-size: 16px;
+	letter-spacing: 1px;
+	box-shadow: 0 5px 15px rgba(255,255,255,0.05);
+}
+
+.form .inputBox input::placeholder{
+	color: #fff;
+}
+
+.form .inputBox input[type="submit"]{
+	background: #fff;
+	
+	color: #666;
+	font-weight: 600;
+	
+	margin-bottom: 20px;
+	max-width: 100px;
+	
+	cursor: pointer;
+	/*마우스 형태 변형
+	*추가 참고자료 > http://www.homejjang.com/09/cursor.php*/
+}
+
+.forget {
+	margin-top: 5px;
+	color: #fff;
+}
+.forget a{
+	color: #fff;
+	font-weight: 600;
+}

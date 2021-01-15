@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Glassmorphism Login Form</title>
+	<link rel="stylesheet" href="Glassmorphism.css">
+</head>
+<body>
+	<section>
+	<!--
+	section	: 독립적인, 주제별로 그룹화 된 콘텐츠
+	aside	: 웹사이트 사이드바, 주 콘텐츠와 분리된 콘텐츠
+	nav		: 다른 페이지로 이동하는 링크, 사이트 내 링크를 포함한 탐색
+	★모든 섹션은 Title을 지녀야함, 숨길수는 있다. (감출땐 hidden, screen reader를 통해 정보접근 허용가능)
+	*추가 참고자료 > https://velog.io/@apricotsoul/HTML-section%EC%9A%94%EC%86%8C-main-%EC%9A%94%EC%86%8C
+	-->
+		<div class="color"></div>
+		<div class="color"></div>
+		<div class="color"></div>
+		<div class="box">
+			<div class="square" style="--i:0;"></div>
+			<div class="square" style="--i:1;"></div>
+			<div class="square" style="--i:2;"></div>
+			<div class="square" style="--i:3;"></div>
+			<div class="square" style="--i:4;"></div>
+			<div class="container">
+				<div class="form">
+					<h2>Login Form</h2>
+					<form>
+						<div class="inputBox">
+							<input type="text" placeholder="UserName">
+							<!--placeholder : Preview-->
+						</div>
+						<div class="inputBox">
+							<input type="text" placeholder="PassWord">
+						</div>
+						<div class="inputBox">
+							<input type="submit" value="Login">
+						</div>
+						<p class="forget">Forgot PassWord?<a href="#">Click here</a></p>
+						<p class="forget">Don`t have an account?<a href="#">Sign up here</a></p>
+					</form>
+				</div>	
+			</div>
+		</div>
+	</section>
+</body>
+</html>
