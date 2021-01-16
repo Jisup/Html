@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: Helvetica, sans-serif;
+}
+img{
+    width: 20px;
+    height: 20px;
+}
+body{
+    overflow: hidden;
+}
+section{
+    display: flex;
+    /*inline-flex   : 수평쌓임*/
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+
+    background: linear-gradient(-30deg, #03a9f4 0%, #3a78b7 50%, #262626 50%, #607d8b 100%);
+    filter: hue-rotate(120deg);
+    animation: animate 10s linear infinite;
+}
+@keyframes animate{
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+.box {
+    position: relative;
+    padding: 50px;
+    width: 320px;
+    height: 450px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 35px rgba(0,0,0,0.2);
+}
+.box::after {
+    /*::before ::after?
+    가상요소    : Pseudo-Element    : 별도의 클래스를 지정하지 않아도 지정한 것처럼 요소선택 가능
+    *추가 기본지식 > http://blog.hivelab.co.kr/%EA%B3%B5%EC%9C%A0before%EC%99%80after-%EA%B7%B8%EB%93%A4%EC%9D%98-%EC%A0%95%EC%B2%B4%EB%8A%94/
+    */
+    content: '';
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    border-radius: 5px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 15%,
+    transparent 50%, transparent 85%, rgba(255,255,255,0.3) 100%);
+}
+.box form{
+    position: relative;
+    
+}
+.box form h2{
+    color: #fff;
+    
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+    margin-bottom: 30px;
+}
+.inputBox {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.inputBox input {
+    width: 100%;
+    padding: 8px 10px;
+    padding-left: 35px;
+    margin-bottom: 20px;
+
+    
+    outline: none;
+
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    background: transparent;
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.2);
+    /*none option->out-shadow, inset option->inner-shadow*/
+    font-size: 15px;
+    font-weight: 600;
+}
+.inputBox input::placeholder{ 
+    color: #fff;
+}
+.inputBox input[type="submit"]{
+    background: #fff;
+    color: #111;
+    
+    text-align: center;
+    padding: 8px 8px;
+
+    box-shadow: none;
+
+    font-weight: 600;
+    cursor: pointer;
+}
+.box form img {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+
+    transform: scale(0.7);
+    filter: invert(1);
+    /*추가 참고자료 > https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert()*/
+}
+.remember_me {
+    display: inline-block;
+    position: relative;
+
+    color: #fff;
+    font-weight: 450;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+form div p{
+    color: #fff;
+}
+form div p a{
+    color: #fff;
+}
