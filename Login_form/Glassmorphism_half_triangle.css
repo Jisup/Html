@@ -139,4 +139,18 @@ form div p{
 }
 form div p a{
     color: #fff;
+} 
+.forget, .account{
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+.forget p a, .account p a {
+    text-decoration: none;
+}
+.forget p a:hover, .account p a:hover {
+    color: #000000;
+    font-weight:600;
+    text-decoration: underline;
 }
